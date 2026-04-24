@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фреймворк проектирования рабочих коммуникаций | IT-среда</title>
+    <!-- Google Fonts для чистого инженерного стиля -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Hero */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 80px 0 64px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 720px;
+            margin-bottom: 32px;
+        }
+
+        .hero-img {
+            margin-bottom: 32px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            background: #0f172a;
+            display: inline-block;
+        }
+        .hero-img img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            border: 1px solid #334155;
+            border-radius: 12px;
+        }
+
+        .badge {
+            background-color: #2d3a5e;
+            color: #b9d0f0;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* Основные секции */
+        .section {
+            padding: 64px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            color: #0f172a;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: #1e293b;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f6;
+            transition: transform 0.1s ease, box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #eef2ff;
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 30px;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .code-block {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #cbd5e6;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: background 0.2s;
+            margin-top: 16px;
+        }
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            background: #f1f5f9;
+            padding: 32px 0;
+            text-align: center;
+            color: #475569;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 760px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="container">
+        <div class="badge">⚡ IT‑среда • 3000–5000+ разработчиков</div>
+        <h1>Проектирование <br>рабочих коммуникаций</h1>
+        <p>Системный фреймворк для инженеров, тимлидов и архитекторов.<br> 
+        Перестань реагировать на конфликты — начни управлять ими осознанно.</p>
+        <div class="hero-img">
+            <img src="img.png" alt="Схема коммуникационного фреймворка — 4 шага">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Зачем нужен фреймворк -->
+    <div class="section">
+        <h2>📐 Зачем инженеру фреймворк для коммуникаций?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 24px;">В крупных IT‑компаниях код редко ломается сам. Чаще всего проблема — в «сложности взаимодействий»: несовместимые OKR, невысказанные ожидания, эскалации и непредсказуемые реакции коллег.</p>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🎯 Что даёт фреймворк</h3>
+                <ul style="margin-left: 20px; color: #1e293b;">
+                    <li>Чёткую карту собственных триггеров и «теневых» реакций</li>
+                    <li>Профили ключевых коллег (мотивы + уязвимости)</li>
+                    <li>Понимание системных конфликтов (структура компании, KPI)</li>
+                    <li>Готовые сценарии для сложных разговоров, встреч и код-ревью</li>
+                    <li>Ретроспективу, которая уточняет профили после каждой ситуации</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🧠 В чём отличие от обычных советов</h3>
+                <p>Мы не даём «будьте добрее». Мы проектируем <strong>алгоритмы поведения</strong> на основе вашего реального опыта. Фреймворк построен как IDE для коммуникаций: профили, сценарии, отладка, логирование ситуаций.</p>
+                <p style="margin-top: 12px;">Подходит для тех, кто мыслит системами, а не «на эмоциях».</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Как работает (4 шага) -->
+    <div class="section">
+        <h2>📋 Как работает фреймворк: 4 шага</h2>
+        <p>Каждый шаг — отдельный чат с ИИ. На выходе — markdown‑файлы, которые можно переиспользовать и уточнять.</p>
+        <div class="grid-2" style="margin-top: 32px;">
+            <div class="card">
+                <div class="step-number">Шаг 1</div>
+                <h3>Мой конфликтный профиль</h3>
+                <p>Триггеры, реакции, стиль в конфликте, «что меня бесит» и что помогает успокоиться. Честно, без психологии — только наблюдаемое поведение.</p>
+            </div>
+            <div class="card">
+                <div class="step-number">Шаг 2</div>
+                <h3>Профиль коллеги</h3>
+                <p>Что его бесит, какие обвинения предъявит, как с ним договариваться. Гипотеза о мотивах: «боится потерять статус», «хочет покоя», «болеет за продукт».</p>
+            </div>
+            <div class="card">
+                <div class="step-number">Шаг 3</div>
+                <h3>Структура компании</h3>
+                <p>Кто реально принимает решения, где заложены системные конфликты (разработка vs безопасность, продукт vs архитектура), от кого зависит результат.</p>
+            </div>
+            <div class="card">
+                <div class="step-number">Шаг 4</div>
+                <h3>Моделирование сценариев</h3>
+                <p>Загружаешь профили → ИИ задаёт вопросы по конкретной ситуации → получаешь 2–3 варианта действий с фразами, рисками и прогнозом реакции.</p>
+            </div>
+        </div>
+        <div style="background: #eef2ff; border-radius: 20px; padding: 24px; margin-top: 32px;">
+            <p style="font-weight: 600; margin-bottom: 8px;">🔄 Ретроспектива → Обратная связь</p>
+            <p>После реального разговора ты возвращаешься в чат Шага 4, ИИ анализирует расхождения, корректирует профили и заполняет <strong>таблицу острых коммуникаций</strong>. Система становится умнее с каждым циклом.</p>
+        </div>
+    </div>
+
+    <!-- Как начать (практические шаги) -->
+    <div class="section">
+        <h2>🚀 Быстрый старт</h2>
+        <div class="grid-2">
+            <div>
+                <h3>1. Подготовь инструкции</h3>
+                <p>Скопируй промты для шагов 1–4 из репозитория. Каждый промт — это диалоговый сценарий.</p>
+                <h3>2. Пройди шаги по порядку</h3>
+                <p>Новый чат → Шаг 1 → сохрани profile_me.md <br>
+                Новый чат → Шаг 2 (на каждого значимого коллегу) → profile_name.md <br>
+                Новый чат → Шаг 3 → company_map.md</p>
+                <h3>3. Запусти Шаг 4</h3>
+                <p>В новый чат загрузи все три файла + инструкцию Шага 4. LLM начнёт задавать вопросы и спроектирует сценарий.</p>
+            </div>
+            <div class="card">
+                <h3>✅ Главное правило</h3>
+                <p><strong>Без файлов 1–3 шаг 4 не работает.</strong> ИИ не узнает твои триггеры и мотивы коллег. Сначала создай базу — потом моделируй.</p>
+                <div class="code-block">
+                    # Структура файлов после шагов 1-3<br>
+                    📁 my_profiles/<br>
+                    ├── my_profile.md<br>
+                    ├── petr_techlead.md<br>
+                    ├── olga_pm.md<br>
+                    └── company_map.md
+                </div>
+                <a href="#" class="btn">📄 Скачать шаблоны (инструкции)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Что внутри (инструменты) -->
+    <div class="section">
+        <h2>🧩 Дополнительные модули (DAD)</h2>
+        <p>В репозитории есть папка <code>/modules</code> — готовые уроки, которые исправляют типовые ошибки ИИ. Например:</p>
+        <ul style="margin: 20px 0 20px 30px;">
+            <li><strong>«Осторожность с травма-нарративом»</strong> — не искать травму у сильных коллег</li>
+            <li><strong>«Приоритизация контекста»</strong> — распознавать эзопов язык и недомолвки</li>
+            <li><strong>«Не путать снятие с умолчанием»</strong> — различать развитие и вынужденную адаптацию</li>
+        </ul>
+        <p>При загрузке в чат эти уроки меняют поведение ИИ, делая его более чутким к реальным ограничениям (цензура, статус, корпоративная иерархия).</p>
+        <div class="code-block">
+            💡 Совет: положи модули рядом с профилями. Если чувствуешь, что ИИ уходит в «психологию» — приложи нужный урок в чат.
+        </div>
+    </div>
+
+    <!-- FAQ / ловушки -->
+    <div class="section">
+        <h2>⚠️ Типичные ловушки (и как их избежать)</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>❌ Слишком глубоко</h3>
+                <p>ИИ может начать копать «детские травмы» и «тени». Для инженерной среды это шум. Добавь в чат модуль «Архитектор-Суверен vs Адаптивный» — фокус вернётся к алгоритмам и инструментам.</p>
+            </div>
+            <div class="card">
+                <h3>❌ Буквальное чтение</h3>
+                <p>Если коллега сказал «может быть, но это сложно» — это часто вежливый отказ. Используй модуль «Приоритизация релевантного контекста».</p>
+            </div>
+            <div class="card">
+                <h3>❌ Имитация всезнания</h3>
+                <p>Не придумывай мотивы коллег, если нет фактов. В шаблоне профиля есть строка: «если не знаешь — напиши "не знаю"». Это честнее и точнее.</p>
+            </div>
+            <div class="card">
+                <h3>❌ Одна итерация</h3>
+                <p>Фреймворк работает в цикле: модель → ситуация → ретроспектива → обновление профиля. Возвращайся с обратной связью — через 3-4 раза точность прогнозов резко вырастает.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section" style="text-align: center;">
+        <h2>Начни с Шага 1 уже сегодня</h2>
+        <p style="max-width: 600px; margin: 0 auto 24px;">Чтобы превратить конфликты в рабочие переговоры, не нужно становиться другим человеком. Нужно добавить систему.</p>
+        <a href="#" class="btn" style="background: #0f172a;">📘 Получить инструкции для чатов</a>
+        <p style="margin-top: 20px; font-size: 0.85rem;">Все файлы (промты, шаблоны, уроки) доступны в репозитории: <strong>dialectic-alignment-dataset</strong></p>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>CC BY 4.0 • Фреймворк открыт для адаптации • Основан на реальных диалогах с архитекторами и тимлидами 3000+ IT-компаний</p>
+        <p style="margin-top: 8px;">Проектирование > Реагирование</p>
+    </div>
+</footer>
+</body>
+</html>
